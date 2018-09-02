@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Mission;
+
 class MCategory extends Model
 {
-	protected $table = 'mission_categories';
 	public $timestamps = false;
+	protected $table = 'mission_categories';
 
 	/* Get Missions */
-    public function mission() {
-    	return $this->hasMany(Mission::class);
-    }
+
+	public function mission()
+	{
+		return $this->hasMany(Mission::class, 'category_id');
+	}
 
 	/**
 	 * Get the route key for the model.
@@ -21,6 +24,6 @@ class MCategory extends Model
 	 */
 	public function getRouteKeyName()
 	{
-	    return 'slug';
+		return 'slug';
 	}
 }

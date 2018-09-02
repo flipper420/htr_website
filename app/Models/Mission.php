@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use MCategory;
+use App\Models\MCategory;
 class Mission extends Model
 {
 	public $timestamps = false;

@@ -1,106 +1,119 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Models\LCategory;
 use App\Models\MCategory;
+use Illuminate\Database\Seeder;
+
 class categorytableseeder extends Seeder
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+	public function run()
+	{
+
+		// ----------------- MISSION CATEGORIES ----------------- //
+
+		MCategory::create(['id'          => '1',
+		                   'name'        => 'Noob',
+		                   'description' => 'Challenges designed to teach you "The Basics".',
+		                   'slug'        => 'noob']);
+
+		MCategory::create(['id'          => '2',
+		                   'name'        => 'Basic',
+		                   'description' => 'Challenges designed to teach you basic javascript, cookies, http headers, etc...',
+		                   'slug'        => 'basic']);
+
+		MCategory::create(['id'          => '3',
+		                   'name'        => 'Realistic',
+		                   'description' => 'Challenges designed to mimic "real-world" vulnerabilities. Each challenge is a "full" website with multiple links,
+			 directories,
+			 and servers.',
+		                   'slug'        => 'realistic']);
+
+		MCategory::create(['id'          => '4',
+		                   'name'        => 'Application',
+		                   'description' => 'Challenges designed to teach you reverse engineering and program manipulation. Android & Iphone apps',
+		                   'slug'        => 'application']);
+
+		MCategory::create(['id'          => '5',
+		                   'name'        => 'Programming',
+		                   'description' => 'Challenges designed to teach you "The Art of Programming".',
+		                   'slug'        => 'programming']);
+
+		MCategory::create(['id'          => '6',
+		                   'name'        => 'Javascript',
+		                   'description' => 'Challenges designed to teach you advanced javascript and how to read,
+			 write,
+			 and manipulate it.',
+		                   'slug'        => 'javascript']);
+
+		MCategory::create(['id'          => '7',
+		                   'name'        => 'Crypto',
+		                   'description' => 'Challenges designed to teach you "The Art of Cryptography"',
+		                   'slug'        => 'crypto']);
+
+		MCategory::create(['id'          => '8',
+		                   'name'        => 'Cracking',
+		                   'description' => 'More reverse engineering and program manipulation. Windows/Linux/MacOSX.',
+		                   'slug'        => 'cracking']);
+
+		MCategory::create(['id'          => '9',
+		                   'name'        => 'Patching',
+		                   'description' => 'Challenges designed to teach you how to spot vulnerable code and how to patch it.
+			C/C++/PHP/Java/etc...',
+		                   'slug'        => 'patching']);
 
 
-  MCategory::create(['id' => '1',
-	'name' => 'Noob',
-	'description' => 'Challenges designed to teach you "The Basics".',
-	'slug' => 'noob']);
+		// ----------------- LIBRARY CATEGORIES ----------------- //
 
-  MCategory::create(['id' => '2',
-	'name' => 'Basic',
-	'description' => 'Challenges designed to teach you basic javascript,
-	 cookies,
-	 http headers,
-	 etc...',
-	'slug' => 'basic']);
+		LCategory::create(['id'          => '1',
+		                   'name'        => 'Articles',
+		                   'description' => 'Nice collection of computer security, hacking, programming, etc...',
+		                   'slug'        => 'articles',]);
 
-  MCategory::create(['id' => '3',
-	'name' => 'Realistic',
-	'description' => 'Challenges designed to mimic "real-world" vulnerabilities. Each challenge is a "full" website with multiple links,
-	 directories,
-	 and servers.',
-	'slug' => 'realistic']);
+		LCategory::create(['id'          => '2',
+		                   'name'        => 'Tutorials',
+		                   'description' => 'Tutorials ranging from teaching sql injection to virtual machine setup all the way to firmware modding and many many more in PDF file format.',
+		                   'slug'        => 'tutorials',]);
 
-  MCategory::create(['id' => '4',
-	'name' => 'Application',
-	'description' => 'Challenges designed to teach you reverse engineering and program manipulation. Android & Iphone apps',
-	'slug' => 'application']);
+		LCategory::create(['id'          => '3',
+		                   'name'        => 'Papers',
+		                   'description' => 'Great collection of Whitepapers. PDF File Format',
+		                   'slug'        => 'papers',]);
 
-  MCategory::create(['id' => '5',
-	'name' => 'Programming',
-	'description' => 'Challenges designed to teach you "The Art of Programming".',
-	'slug' => 'programming']);
+		LCategory::create(['id'          => '4',
+		                   'name'        => 'Tools',
+		                   'description' => 'Bundles of tools, software, build-tool, compilers, debuggers, scripts, and plugins in either RAR or ZIP file format. ',
+		                   'slug'        => 'tools',]);
 
-  MCategory::create(['id' => '6',
-	'name' => 'Javascript',
-	'description' => 'Challenges designed to teach you advanced javascript and how to read,
-	 write,
-	 and manipulate it.',
-	'slug' => 'javascript']);
+		LCategory::create(['id'          => '5',
+		                   'name'        => 'Code',
+		                   'description' => 'User-submitted code, scripts, projects, etc... in RAR or ZIP file format.',
+		                   'slug'        => 'code',]);
 
-  MCategory::create(['id' => '7',
-	'name' => 'Crypto',
-	'description' => 'Challenges designed to teach you "The Art of Cryptography"',
-	'slug' => 'crypto']);
+		LCategory::create(['id'          => '6',
+		                   'name'        => 'Snippets',
+		                   'description' => 'An assortment of usefult snippetts for HTML, CSS, PHP, SQL, etc...',
+		                   'slug'        => 'snippetts',]);
 
-  MCategory::create(['id' => '8',
-	'name' => 'Cracking',
-	'description' => 'More reverse engineering and program manipulation. Windows/Linux/MacOSX.',
-	'slug' => 'cracking']);
+		LCategory::create(['id'          => '7',
+		                   'name'        => 'Ebooks',
+		                   'description' => 'Very, very BIG selection of E-Books.',
+		                   'slug'        => 'e-books',]);
 
-  MCategory::create(['id' => '9',
-	'name' => 'Patching',
-	'description' => 'Challenges designed to teach you how to spot vulnerable code and how to patch it.
+		LCategory::create(['id'          => '8',
+		                   'name'        => 'Wordlists',
+		                   'description' => 'Wordlists ranging in sizes from ITTY BITY to INSANELY MASSIVE.',
+		                   'slug'        => 'cracking',]);
+
+		LCategory::create(['id'          => '9',
+		                   'name'        => 'Patching',
+		                   'description' => 'Challenges designed to teach you how to spot vulnerable code and how to patch it.
 	C/C++/PHP/Java/etc...',
-	'slug' => 'patching']);
-
- //  Category::create(['id' => '10',
-	// 'name' => 'Articles',
-	// 'description' => 'Huge collection of articles related to hacking,
-	//  cracking,
-	//  etc...',
-	// 'slug' => 'articles',
-	// 'type' => 'library']);
-
- //  Category::create(['id' => '11',
-	// 'name' => 'Tutorials',
-	// 'description' => 'Huge collection of tutorials on many different topics related to programming,
-	//  hacking,
-	//  cracking,
-	//  and many many more...',
-	// 'slug' => 'tutorials',
-	// 'type' => 'library']);
-
- //  Category::create(['id' => '12',
-	// 'name' => 'Tools',
-	// 'description' => 'Massive collection of old & new hacking,
-	//  cracking,
-	//  wifi hacking,
-	//  password cracking,
-	//  and a bunch of random tools free for you to download!',
-	// 'slug' => 'tools',
-	// 'type' => 'library']);
-
- //  Category::create(['id' => '13',
-	// 'name' => 'Ebooks',
-	// 'description' => 'A bunch of random ebooks. Programming,
-	//  hacking,
-	//  cracking,
-	//  etc...',
-	// 'slug' => 'ebooks',
-	// 'type' => 'library']);  
-
-}
+		                   'slug'        => 'patching',]);
+	}
 }

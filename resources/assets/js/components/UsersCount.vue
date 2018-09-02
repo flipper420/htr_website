@@ -38,7 +38,7 @@
                         datasets: [{
                             label: 'Number of users online',
                             data: [this.count],
-                            borderWidth: 0
+                            borderWidth: 5
                         }]
                     },
                     options: {
@@ -56,6 +56,7 @@
                 Echo.join('chart')
                     .here((users) => {
                         this.count = users.length;
+                        console.log(this.count);
                         this.drawChart();
                     })
                     .joining((user) => {

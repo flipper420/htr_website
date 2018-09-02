@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="wrapper">
         <div class="row">
             <div class="col-12 col-xl-10 offset-xl-1">
                 <div class="card">

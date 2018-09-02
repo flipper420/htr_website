@@ -166,7 +166,7 @@ class UsersManagementController extends Controller
     {
         $currentUser = Auth::user();
         $user = User::find($id);
-        $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
+	    $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait();
 
         if ($emailCheck) {

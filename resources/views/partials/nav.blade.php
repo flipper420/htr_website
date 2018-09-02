@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-dark navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {!! config('app.name', trans('titles.app')) !!}

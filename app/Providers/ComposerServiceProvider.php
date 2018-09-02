@@ -7,25 +7,29 @@ use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
 {
-    /**
-     * Register bindings in the container.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        View::composer(
-            'layouts.app', 'App\Http\ViewComposers\ThemeComposer'
-        );
-    }
+	/**
+	 * Register bindings in the container.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		View::composer(
+			'layouts.app', 'App\Http\ViewComposers\ThemeComposer'
+		);
 
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
+		View::composer(
+			'*', 'App\Http\ViewComposers\NotifyComposer'
+		);
+	}
+
+	/**
+	 * Register the service provider.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		//
+	}
 }
