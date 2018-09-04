@@ -24,6 +24,7 @@
     "jeremykenedy/laravel-roles": "^1.2",
     "jeremykenedy/laravel2step": "^1.0",
     "jeremykenedy/uuid": "^3.1",
+    "laracademy/generators": "^1.3",
     "laravel/framework": "5.6.*",
     "laravel/passport": "^7.0",
     "laravel/socialite": "^3.0",
@@ -36,9 +37,11 @@
     "socialiteproviders/generators": "^2.0",
     "socialiteproviders/instagram": "^3.0",
     "socialiteproviders/twitch": "^3.0",
-    "socialiteproviders/youtube": "^3.0"
+    "socialiteproviders/youtube": "^3.0",
+    "spatie/laravel-medialibrary": "^7.4"
   },
   "require-dev": {
+    "crestapps/laravel-code-generator": "^2.2",
     "filp/whoops": "^2.0",
     "fzaninotto/faker": "^1.4",
     "laracasts/generators": "^1.1",

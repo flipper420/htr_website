@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container-fluid">
         <div class="card w-100">
             <div class="card-header bg-danger">
@@ -18,31 +17,52 @@
 
             <div class="card-body">
                 <div class="d-flex flex-column">
-                    @foreach($tutorials as $tutorial)
+                    @switch(strtolower($slug->name))
+                        @case('articles')
+                        <span> `E-mail` input is empty!</span>
+                        @break
+
+                        @case('ebooks')
+                        <span>`Password` input is empty!</span>
+                        @break
+
+                        @case('articles')
+                        <span> `E-mail` input is empty!</span>
+                        @break
+
+                        @case('ebooks')
+                        <span>`Password` input is empty!</span>
+                        @break
+
+                        @case('articles')
+                        <span> `E-mail` input is empty!</span>
+                        @break
+
+                        @case('ebooks')
+                        <span>`Password` input is empty!</span>
+                        @break
+
+                        @default
+                        <span>Something went wrong, please try again</span>
+                    @endswitch
+
+                    @foreach($slug->articles as $article)
 
                         <div class="d-flex flex-row">
                             <div class="card flex-row flex-fill">
-                                <img width="250" height="160" src="{{$tutorial->img_url}}">
+                                <img width="250" height="160" src="{{$article->img_url}}">
                             </div>
                             <div class="card w-100">
                                 <div class="card-header d-flex flex-row align-items-baseline">
-                                    <a href="/library/{{$tutorial->slug}}"><h2>{{$tutorial->name}}</h2></a>
+                                    <a href="/library/articles/{{$article->title}}"><h2>{{$article->title}}</h2></a>
                                     <div class="ml-auto">
-                                        @if ($tutorial->level == 'easy')
-                                            <span class="badge badge-pill badge-success normal">Difficulty: {{$tutorial->level}}</span>
-                                        @elseif ($tutorial->level == 'normal')
-                                            <span class="badge badge-pill badge-primary normal">Difficulty: {{$tutorial->level}}</span>
-                                        @elseif ($tutorial->level == 'hard')
-                                            <span class="badge badge-pill badge-warning normal">Difficulty: {{$tutorial->level}}</span>
-                                        @elseif ($tutorial->level == 'insane')
-                                            <span class="badge badge-pill badge-danger normal">Difficulty: {{$tutorial->level}}</span>
-                                        @endif
-                                        <span class="badge badge-pill badge-light normal">Reward: {{$tutorial->reward}}</span>
+                                        <span class="badge badge-pill badge-light normal">Published: {{$article->published}}</span>
                                     </div>
                                 </div>
 
                                 <div class="card-body">
-                                    {{ $tutorial->description }}
+                                    <h4>Content</h4>
+                                    {{ $article->content }}
                                 </div>
                             </div>
                         </div>

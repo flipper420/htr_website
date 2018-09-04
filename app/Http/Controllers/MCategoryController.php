@@ -12,16 +12,8 @@ class MCategoryController extends Controller
 	// TODO: add docbloc
 	public function index()
 	{
-		$categories = MCategory::get();
-
-		$count = [];
-		$i = 0;
-		foreach ($categories as $cat) {
-			//$count[$i] = Mission::get()->where('category_id', $cat->id)->count();
-			$count[ $i ] = MCategory::find($i + 1)->mission()->groupBy('category_id')->selectRaw('count(*) as agg')->value('agg');
-			$i++;
-		}
-		return view('missions.index', compact('categories', 'count'));
+		$categories = MCategory::with('mission')->get();
+		return view('missions.index', compact('categories'));
 	}
 
 	// TODO: add docbloc

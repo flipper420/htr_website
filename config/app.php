@@ -173,6 +173,7 @@ return [
 		App\Providers\LocalEnvironmentServiceProvider::class,
 		Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 		jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
+		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
 	],
 

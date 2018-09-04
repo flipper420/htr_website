@@ -20,33 +20,33 @@ class LCategory extends Model
 
 	public function tutorials()
 	{
-		return $this->hasMany('App\Models\Tutorial');
+		return $this->hasMany('App\Models\Tutorial', 'category_id');
 	}
 
 	// TODO: add docbloc
 
 	public function archives()
 	{
-		return $this->hasMany('App\Models\Archive');
+		return $this->hasMany('App\Models\Archive', 'category_id');
 	}
 
 	// TODO: add docbloc
 
 	public function library()
 	{
-		return $this->hasMany('App\Models\Library');
+		return $this->hasMany('App\Models\Library', 'category_id');
 	}
 
 	// TODO: add docbloc
 
 	public function articles()
 	{
-		return $this->hasMany('App\Models\Article');
+		return $this->hasMany('App\Models\Article', 'category_id');
 	}
 
 	public function manuals()
 	{
-		return $this->hasMany('App\Models\Manual');
+		return $this->hasMany('App\Models\Manual', 'category_id');
 	}
 
 	/**

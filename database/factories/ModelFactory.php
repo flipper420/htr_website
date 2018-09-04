@@ -4,6 +4,7 @@ use jeremykenedy\LaravelRoles\Models\Role;
 use App\Models\Category;
 use App\Models\Mission;
 use App\Models\Library;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -18,78 +19,176 @@ use App\Models\Library;
 /* @var \Illuminate\Database\Eloquent\Factory $factory */
 
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
-    static $password;
-    $userRole = Role::whereName('User')->first();
+	static $password;
+	$userRole = Role::whereName('User')->first();
 
-    return [
-        'name'                           => $faker->unique()->userName,
-        'first_name'                     => $faker->firstName,
-        'last_name'                      => $faker->lastName,
-        'email'                          => $faker->unique()->safeEmail,
-        'password'                       => $password ?: $password = bcrypt('secret'),
-        'token'                          => str_random(64),
-        'activated'                      => true,
-        'remember_token'                 => str_random(10),
-        'signup_ip_address'              => $faker->ipv4,
-        'signup_confirmation_ip_address' => $faker->ipv4,
-        'created_at'                     => $faker->dateTimeBetween('-3 years', 'now'),
-        'updated_at'                     => $faker->dateTimeBetween('-3 years', 'now'),
-    ];
+	return [
+		'name'                           => $faker->unique()->userName,
+		'first_name'                     => $faker->firstName,
+		'last_name'                      => $faker->lastName,
+		'email'                          => $faker->unique()->safeEmail,
+		'password'                       => $password ?: $password = bcrypt('secret'),
+		'token'                          => str_random(64),
+		'activated'                      => true,
+		'remember_token'                 => str_random(10),
+		'signup_ip_address'              => $faker->ipv4,
+		'signup_confirmation_ip_address' => $faker->ipv4,
+		'created_at'                     => $faker->dateTimeBetween('-3 years', 'now'),
+		'updated_at'                     => $faker->dateTimeBetween('-3 years', 'now'),
+	];
 });
 
+$factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 1,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Tutorial::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 2,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Paper::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 3,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Tool::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 4,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Code::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 5,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Snippet::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 6,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Ebook::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 7,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Wordlist::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 8,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
+
+$factory->define(App\Models\Other::class, function (Faker\Generator $faker) {
+	return [
+		'category_id' => 9,
+		'user_id'     => factory(App\Models\User::class)->create()->id,
+		'title'       => $faker->word,
+		'summary'     => $faker->realText(50),
+		'content'     => $faker->realText(400),
+		'published'   => $faker->dateTimeBetween('-3 years', 'now'),
+	];
+});
 
 $factory->define(App\Models\Profile::class, function (Faker\Generator $faker) {
-    return [
-        'user_id'          => factory(App\Models\User::class)->create()->id,
-        'theme_id'         => 1,
-        'location'         => $faker->streetAddress,
-        'bio'              => $faker->paragraph(2, true),
-        'twitter_username' => $faker->userName,
-        'github_username'  => $faker->userName,
-    ];
+	return [
+		'user_id'          => factory(App\Models\User::class)->create()->id,
+		'theme_id'         => 1,
+		'location'         => $faker->streetAddress,
+		'bio'              => $faker->paragraph(2, true),
+		'twitter_username' => $faker->userName,
+		'github_username'  => $faker->userName,
+	];
 });
 
 $factory->define(App\Models\MCategory::class, function (Faker\Generator $faker) {
-        $name = $faker->word;
-    return [
-        'name'          => $name,
-        'description'   => $faker->paragraph,
-        'slug'          => str_slug($name),
-    ];
+	$name = $faker->word;
+	return [
+		'name'        => $name,
+		'description' => $faker->paragraph,
+		'slug'        => str_slug($name),
+	];
 });
 
 $factory->define(App\Models\Library::class, function (Faker\Generator $faker) {
-    $name = $faker->unique()->word;
-    return [
-        'category_id'   => $faker->numberBetween(10,13),
-        'name'          => $name,
-        'description'   => $faker->paragraph,
-        'img_url'       => $faker->imageUrl(300, 300),
-        'slug'          => str_slug($name),
-        'type'          => $faker->randomElement(['articles', 'tutorials', 'tools', 'ebooks']),
-    ];
+	$name = $faker->unique()->word;
+	return [
+		'category_id' => $faker->numberBetween(10, 13),
+		'name'        => $name,
+		'description' => $faker->paragraph,
+		'img_url'     => $faker->imageUrl(300, 300),
+		'slug'        => str_slug($name),
+		'type'        => $faker->randomElement(['articles', 'tutorials', 'tools', 'ebooks']),
+	];
 });
 
 $factory->define(App\Models\Mission::class, function (Faker\Generator $faker) {
-        $name = $faker->unique()->word;
-    return [
-        'category_id'   => $faker->numberBetween(1,9),
-        'name'          => $name,
-        'description'   => $faker->streetAddress,
-        'level'         => $faker->randomElement(['easy', 'normal', 'hard', 'insane']),
-        'img_url'       => $faker->imageUrl(300, 300),
-        'slug'          => str_slug($name),
-        'reward'          => $faker->numberBetween(100, 1000),
-        'password'          => $faker->word,
-    ];
+	$name = $faker->unique()->word;
+	return [
+		'category_id' => $faker->numberBetween(1, 9),
+		'name'        => $name,
+		'description' => $faker->streetAddress,
+		'level'       => $faker->randomElement(['easy', 'normal', 'hard', 'insane']),
+		'img_url'     => $faker->imageUrl(300, 300),
+		'slug'        => str_slug($name),
+		'reward'      => $faker->numberBetween(100, 1000),
+		'password'    => $faker->word,
+	];
 });
 
-$factory->define(App\Models\Point::class, function(Faker\Generator $faker) {
-    return [      
-            'user_id'          => $faker->numberBetween(1, 150),
-            'points'           => $faker->numberBetween(100, 10000),
-            'reason'           => 'testing',
-            'dir'              => $faker->randomElement(['add', 'sub']),
-        ];
+$factory->define(App\Models\Point::class, function (Faker\Generator $faker) {
+	return [
+		'user_id' => $faker->numberBetween(1, 150),
+		'points'  => $faker->numberBetween(100, 10000),
+		'reason'  => 'testing',
+		'dir'     => $faker->randomElement(['add', 'sub']),
+	];
 });
 

@@ -24,7 +24,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="card flex-row align-items-center">
                                         <div class="card-body">
-                                            <h2 class="text-center">{{$count[$loop->index]}}
+                                            <h2 class="text-center">85
                                                 <span class="text-small text-muted">missions</span>
                                             </h2>
                                         </div>
